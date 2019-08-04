@@ -10,9 +10,34 @@
     <script type="text/javascript" src="js/treeList.js"></script>
     <title>treeList</title>
 </head>
+<style>
+    .content {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
 
 <body>
+    <div class='content'>
+    </div>
+    <script>
+        let listData = [
+            { id: '000100020001', pid: '00010002', level: '3',data: '渝中区' },
+            { id: '00010002', pid: '0001', level: '2', data: '重庆' },
+            { id: '0001', pid: '', level: '1', data: '中国' },
+            { id: '0002', pid: '', level: '1', data: '美国' },
+            { id: '0001000200020001', pid: '000100020002', level: '4',data: '璧城街道' },
+            { id: '0003', pid: '',level: '1', data: '日本' },
+            { id: '00010001', pid: '0001', level: '2', data: '北京' },
+            { id: '000100020002', pid: '00010002', level: '3', data: '璧山区' },
+        ]
+        let treelist = $(".content").treeList({
 
+        }, listData);
+    </script>
 </body>
 
 </html>

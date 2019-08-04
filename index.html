@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="js/jquery-3.0.0.js"></script>
     <title>Document</title>
 </head>
 <style>
@@ -24,30 +25,146 @@
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2)
     }
 
-    .treelist_title{
+    .treelist_title {
         height: 45px;
         width: 100%;
         border-bottom: 1px solid #e8e8e8;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .title_search_box {
+        height: 70%;
+        width: 95%;
+        border-radius: 30px;
+        border: 2px solid #ccc;
+        background: #ffffff;
+        display: flex;
+        align-items: center
+    }
+
+    .search_box_input {
+        height: 100%;
+        width: 85%;
+        outline: none;
+        background-color: transparent;
+        border: 0;
+        padding-left: 12px;
+        font-size: 16px;
+        border-right: 2px solid #ccc;
+        color: #656565;
+    }
+
+    .search_box_logo {
+        height: 36px;
+        width: 36px;
+        background: url(img/search.png) no-repeat;
+        cursor: pointer;
+    }
+
+    .content_list {
+        height: calc(100% - 14px);
+        width: calc(100% - 14px);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .treelist_content {
+        width: 100%;
+        height: calc(100% - 45px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .content_list_row {
+        height: 30px;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        color: #656565;
+    }
+
+    .row_img_open {
+        height: 16px;
+        width: 16px;
+        background: url(img/open.png) no-repeat;
+        background-size: 100%;
+        cursor: pointer;
+    }
+
+    .row_img_close {
+        height: 16px;
+        width: 16px;
+        background: url(img/close.png) no-repeat;
+        background-size: 100%;
+        cursor: pointer;
+    }
+
+    .list_row_check {
+        height: 12px;
+        width: 12px;
     }
 </style>
 
 <body>
     <div class='content'>
         <div class="treelist">
-            <div class="treelist_title"></div>
-            <div class="treelist_content"></div>
+            <div class="treelist_title">
+                <div class="title_search_box">
+                    <input class="search_box_input">
+                    <div class="search_box_logo"></div>
+                </div>
+            </div>
+            <div class="treelist_content">
+                <div class="content_list">
+                    <div class="content_list_row" data-level='1'>
+                        <div class="row_img_open"></div>
+                        <input type="checkbox" class="list_row_check">
+                        <label>中国</label>
+                    </div>
+                    <div class="content_list_row" data-level='2'>
+                        <div class="row_img_open"></div>
+                        <input type="checkbox" class="list_row_check">
+                        <label>重庆</label>
+                    </div>
+                    <div class="content_list_row" data-level='3'>
+                        <div class="row_img_open"></div>
+                        <input type="checkbox" class="list_row_check">
+                        <label>璧山</label>
+                    </div>
+                    <div class="content_list_row">美国</div>
+                    <div class="content_list_row">日本</div>
+                </div>
             </div>
         </div>
     </div>
     <script>
-      let treelist = $(".content").treelist({  //特点：方便后端 传输的数据不需要转数据结构
-          type:'',  //平铺还是树形结构
-          type:'',  //是否可勾选
-          type:'',  //平铺还是树形结构
-          type:'',  //是否默认选择
-          type:'',  //点击事件
-          type:'',  //多选事件
-      });
+
+        let listData = [
+            {id:'0001',pid:'',index:'0001',level:'1',data:'中国'},
+            {id:'0002',pid:'',index:'0002',level:'1',data:'美国'},
+            {id:'0003',pid:'',index:'0003',level:'1',data:'日本'},
+            {id:'00010001',pid:'0001',level:'2',index:'0001.0001',data:'北京'},
+            {id:'00010002',pid:'0001',level:'2',index:'0001.0002',data:'重庆'},
+            {id:'000100020001',pid:'00010002',level:'3',index:'0001.0002.0001',data:'渝中'},
+        ]
+        $(document).ready(function () {
+            $("div[data-level]").each(function (index, element) {
+                let level = $(this).data().level;
+                $(this).css("padding-left", ((level - 1) * 17) + 'px');
+            });
+        });
+        //   let treelist = $(".content").treelist({  //特点：方便后端 传输的数据不需要转数据结构
+        //       type:'',  //平铺还是树形结构
+        //       type:'',  //是否可勾选
+        //       type:'',  //平铺还是树形结构
+        //       type:'',  //是否默认选择
+        //       type:'',  //点击事件
+        //       type:'',  //多选事件
+        //       type:'',  //树是否全部展开
+        //   });
     </script>
 </body>
 

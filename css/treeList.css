@@ -1,0 +1,89 @@
+.treelist {
+    width: 360px;
+    height: 570px;
+    background: #fafafa;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2)
+}
+
+.treelist_title {
+    height: 45px;
+    width: 100%;
+    border-bottom: 1px solid #e8e8e8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title_search_box {
+    height: 70%;
+    width: 95%;
+    border-radius: 30px;
+    border: 2px solid #ccc;
+    background: #ffffff;
+    display: flex;
+    align-items: center
+}
+
+.search_box_input {
+    height: 100%;
+    width: 85%;
+    outline: none;
+    background-color: transparent;
+    border: 0;
+    padding-left: 12px;
+    font-size: 16px;
+    border-right: 2px solid #ccc;
+    color: #656565;
+}
+
+.search_box_logo {
+    height: 36px;
+    width: 36px;
+    background: url(../img/search.png) no-repeat;
+    cursor: pointer;
+}
+
+.content_list {
+    height: calc(100% - 14px);
+    width: calc(100% - 14px);
+    display: flex;
+    flex-direction: column;
+}
+
+.treelist_content {
+    width: 100%;
+    height: calc(100% - 45px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content_list_row {
+    height: 30px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    color: #656565;
+}
+
+.row_img_open {
+    height: 16px;
+    width: 16px;
+    background: url(../img/open.png) no-repeat;
+    background-size: 100%;
+    cursor: pointer;
+}
+
+.row_img_close {
+    height: 16px;
+    width: 16px;
+    background: url(../img/close.png) no-repeat;
+    background-size: 100%;
+    cursor: pointer;
+}
+
+.list_row_check {
+    height: 12px;
+    width: 12px;
+}
